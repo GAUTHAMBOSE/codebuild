@@ -6,10 +6,10 @@ phases:
         for i in $(git diff --name-only HEAD HEAD~1); do
           if [[ $i == *"kk.txt"* ]]; then
             echo "kk.txt file changes"
-            aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:zmy-scrip --message "zmy scrip folder changes"
+            aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
           elif [[ $i == *"bose.txt"* ]]; then
             echo "bose.txt has changed"
-            aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:zmy-scrip --message "bose.py has changed"
+            aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
           fi
         done
       - echo "sns notification sent to email"
