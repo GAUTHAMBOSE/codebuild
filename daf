@@ -1,0 +1,40 @@
+[1mdiff --git a/buildspec.yaml b/buildspec.yaml[m
+[1mindex 2fad580..62dc656 100644[m
+[1m--- a/buildspec.yaml[m
+[1m+++ b/buildspec.yaml[m
+[36m@@ -4,13 +4,27 @@[m [mphases:[m
+     commands:[m
+       - |[m
+         for i in $(git diff --name-only HEAD main); do[m
+[31m-          if [[ $i == *"kk.txt"* ]]; then[m
+[31m-            echo "kk.txt file changes"[m
+[31m-            aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"[m
+[31m-          elif [[ $i == *"bose.txt"* ]]; then[m
+[31m-            echo "bose.txt has changed"[m
+[31m-            aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"[m
+[32m+[m[41m[m
+[32m+[m[32m          if [[ "$i" == *"kk.txt"* ]]; then[m[41m[m
+[32m+[m[32m              echo "kk.txt file changes"[m[41m[m
+[32m+[m[32m              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"[m[41m[m
+[32m+[m[32m              echo "SNS notification sent to email"[m[41m[m
+           fi[m
+[32m+[m[32m          if [[ "$i" == *"bose.txt"* ]]; then[m[41m[m
+[32m+[m[32m              echo "bose.txt has changed"[m[41m[m
+[32m+[m[32m              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"[m[41m[m
+[32m+[m[32m              echo "SNS notification sent to email"[m[41m[m
+[32m+[m[32m          fi[m[41m                                              [m
+         done[m
+[31m-      - echo "sns notification sent to email"[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m      #     if [[ $i == *"kk.txt"* ]]; then[m[41m[m
+[32m+[m[32m      #       echo "kk.txt file changes"[m[41m[m
+[32m+[m[32m      #       aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"[m[41m[m
+[32m+[m[32m      #     elif [[ $i == *"bose.txt"* ]]; then[m[41m[m
+[32m+[m[32m      #       echo "bose.txt has changed"[m[41m[m
+[32m+[m[32m      #       aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"[m[41m[m
+[32m+[m[32m      #     fi[m[41m[m
+[32m+[m[32m      #   done[m[41m[m
+[32m+[m[32m      # - echo "sns notification sent to email"[m[41m[m
+         # for i in $(git diff --name-only HEAD HEAD~1); do[m
+\ No newline at end of file[m
