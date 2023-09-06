@@ -8,9 +8,8 @@ phases:
       - echo "$(git branch)"
       - echo status
       - echo $(git diff)
-      - git diff --name-only HEAD^ HEAD
       - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
-      - echo $(git diff --name-only HEAD main)
+      - echo $(git diff --name-only HEAD~1 HEAD)
       - |
         for i in $(git diff --name-only HEAD main); do
           echo $i
@@ -24,7 +23,10 @@ phases:
           fi                                              
         done
       - echo "sns notification sent to email"
+      - echo "$(git diff --name-only HEAD~1 HEAD)"
       - echo $(git diff --name-only HEAD HEAD~1)
+      - echo $(git diff --name-only HEAD HEAD~7)
+      
 
 ## for statement change   this main brach inside no of repo and one of these navinbuildtask repo  and inside this repo have no of files kk.txt , bose.txt, d.sh, buildspec.yaml , etc
               # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
