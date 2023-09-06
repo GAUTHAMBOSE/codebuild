@@ -6,17 +6,17 @@ phases:
       - ls -l
       - ls 
       - echo "$(git branch)"
-      - echo status
+      -  echo "$(git status)"
       - HEAD_COMMIT=$(git rev-parse HEAD)
-      - PARENT_COMMIT=$(git rev-parse HEAD^)
+      - PARENT_COMMIT=$(git rev-parse HEAD~1)
       - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
       - cat changed_files.txt
 
       - echo $(git diff)
+
     
-      - echo $(git diff --name-only HEAD~1 HEAD)
       - |
-        for i in $(git diff --name-only HEAD main); do
+        for i in git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt; do
           echo $i
           if [[ "$i" == *"kk.txt"* ]]; then
               echo "kk.txt file changes"
@@ -32,11 +32,11 @@ phases:
       - echo "sns notification sent to email"
       - echo "$(git diff --name-only HEAD~1 HEAD)"
       - echo $(git diff --name-only HEAD HEAD~1)
-      - echo $(git diff --name-only HEAD HEAD~7)
+
 
 
 ## for statement change   this main brach inside no of repo and one of these navinbuildtask 
-
+# $(git diff --name-only HEAD main)
 
 
 
