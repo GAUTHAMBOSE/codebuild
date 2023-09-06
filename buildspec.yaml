@@ -7,18 +7,25 @@ phases:
       - ls 
       - echo "$(git branch)"
       - echo status
+      - HEAD_COMMIT=$(git rev-parse HEAD)
+      - PARENT_COMMIT=$(git rev-parse HEAD^)
+      - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
+      - cat changed_files.txt
+
       - echo $(git diff)
-      - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
+    
       - echo $(git diff --name-only HEAD~1 HEAD)
       - |
         for i in $(git diff --name-only HEAD main); do
           echo $i
           if [[ "$i" == *"kk.txt"* ]]; then
               echo "kk.txt file changes"
+              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
               echo "SNS notification sent to email"
           fi
           if [[ "$i" == *"bose.txt"* ]]; then
               echo "bose.txt has changed"
+              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
               echo "SNS notification sent to email"
           fi                                              
         done
@@ -26,11 +33,9 @@ phases:
       - echo "$(git diff --name-only HEAD~1 HEAD)"
       - echo $(git diff --name-only HEAD HEAD~1)
       - echo $(git diff --name-only HEAD HEAD~7)
-      
 
-## for statement change   this main brach inside no of repo and one of these navinbuildtask repo  and inside this repo have no of files kk.txt , bose.txt, d.sh, buildspec.yaml , etc
-              # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
-              # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
+
+## for statement change   this main brach inside no of repo and one of these navinbuildtask 
 
 
 
@@ -89,3 +94,10 @@ phases:
 
 
 #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
+#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
+
+
+
+
+#fatal: ambiguous argument 'HEAD~7': unknown revision or path not in the working tree. Use '--' to separate paths from revisions, like this: 'git <command> [<revision>...] -- [<file>...]' 
+
