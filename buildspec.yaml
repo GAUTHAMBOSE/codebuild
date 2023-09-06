@@ -2,13 +2,13 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "hello"
       - echo $(pwd)
       - ls -l
       - ls 
-      - echo branch
+      - echo "$(git branch)"
       - echo status
       - echo $(git diff)
+      - git diff --name-only HEAD^ HEAD
       - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
       - echo $(git diff --name-only HEAD main)
       - |
@@ -86,4 +86,4 @@ phases:
 
 
 
-#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
+#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
