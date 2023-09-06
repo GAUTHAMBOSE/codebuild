@@ -3,12 +3,12 @@ phases:
   build:
     commands:
       - echo "hello"
-      - echo "PWD: $(pwd)"
+      - echo $(pwd)
       - echo "ls -l:"
       - ls 
       - echo branch
       - echo status
-      - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
+      # - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
       # - echo $(git diff --name-only HEAD main)
       # - |
       #   for i in $(git diff --name-only HEAD main); do
