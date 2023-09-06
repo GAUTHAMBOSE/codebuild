@@ -7,15 +7,20 @@ phases:
 
           if [[ "$i" == *"kk.txt"* ]]; then
               echo "kk.txt file changes"
-              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
               echo "SNS notification sent to email"
           fi
           if [[ "$i" == *"bose.txt"* ]]; then
               echo "bose.txt has changed"
-              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
               echo "SNS notification sent to email"
           fi                                              
         done
+
+## for statement change   this main brach inside no of repo and one of these navinbuildtask repo  and inside this repo have no of files kk.txt , bose.txt, d.sh, buildspec.yaml , etc
+              # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
+              # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
+
+
+
 
 
       #     if [[ $i == *"kk.txt"* ]]; then
@@ -28,3 +33,41 @@ phases:
       #   done
       # - echo "sns notification sent to email"
         # for i in $(git diff --name-only HEAD HEAD~1); do
+
+
+
+## for statement this main brach inside no of repo and one of these navinbuildtask repo  and inside this repo have no of files kk.txt , bose.txt, d.sh, buildspec.yaml , etc
+
+
+
+
+# version: 0.2
+# phases:
+#   build:
+#     commands:
+#       - |
+#         # Define the list of repositories and files to check
+#         repositories=("repo1" "repo2" "navinbuildtask")
+#         files=("kk.txt" "bose.txt" "d.sh" "buildspec.yaml")
+
+#         for repo in "${repositories[@]}"; do
+#           for file in "${files[@]}"; do
+#             # Clone the repository
+#             git clone https://github.com/your-username/${repo}.git
+#             cd ${repo}
+
+#             # Check for changes in the 'main' branch
+#             for i in $(git diff --name-only HEAD main); do
+#               if [[ "$i" == *"${file}"* ]]; then
+#                 echo "${file} has changed in ${repo}"
+#                 aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "${file} folder changes in ${repo}"
+#                 echo "SNS notification sent to email"
+#               fi
+#             done
+
+#             cd ..
+#             rm -rf ${repo}
+#           done
+#         done
+
+
