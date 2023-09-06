@@ -24,6 +24,7 @@ phases:
           fi                                              
         done
       - echo "sns notification sent to email"
+      - echo $(git diff --name-only HEAD HEAD~1)
 
 ## for statement change   this main brach inside no of repo and one of these navinbuildtask repo  and inside this repo have no of files kk.txt , bose.txt, d.sh, buildspec.yaml , etc
               # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
