@@ -2,9 +2,13 @@ version: 0.2
 phases:
   build:
     commands:
+        echo "hello"
+        echo PWD
+        echo ls -l
+        echo $(git diff --name-only HEAD main)
       - |
         for i in $(git diff --name-only HEAD main); do
-
+          echo $i
           if [[ "$i" == *"kk.txt"* ]]; then
               echo "kk.txt file changes"
               echo "SNS notification sent to email"
