@@ -1,1 +1,3 @@
-wd
+bose.txt
+buildspec.yaml
+kk.txt

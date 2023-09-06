@@ -6,7 +6,7 @@ phases:
       - ls -l
       - ls 
       - echo "$(git branch)"
-      -  echo "$(git status)"
+      - echo "$(git status)"
       - HEAD_COMMIT=$(git rev-parse HEAD)
       - PARENT_COMMIT=$(git rev-parse HEAD~1)
       - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
@@ -16,7 +16,7 @@ phases:
 
     
       - |
-        for i in git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt; do
+        for i in $(cat changed_files.txt) ; do
           echo $i
           if [[ "$i" == *"kk.txt"* ]]; then
               echo "kk.txt file changes"
@@ -34,6 +34,7 @@ phases:
       - echo $(git diff --name-only HEAD HEAD~1)
 
 
+        # for i in git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt; do
 
 ## for statement change   this main brach inside no of repo and one of these navinbuildtask 
 # $(git diff --name-only HEAD main)
@@ -95,7 +96,7 @@ phases:
 
 #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
 #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
-
+#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
 
 
 
