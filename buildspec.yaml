@@ -5,8 +5,9 @@ phases:
       - echo "hello"
       - echo "PWD: $(pwd)"
       - echo "ls -l:"
-      - ls -l
+      - ls 
       - echo branch
+      - echo status
       - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
       # - echo $(git diff --name-only HEAD main)
       # - |
@@ -78,3 +79,5 @@ phases:
 #         done
 
 
+
+# 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
