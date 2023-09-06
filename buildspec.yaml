@@ -4,24 +4,25 @@ phases:
     commands:
       - echo "hello"
       - echo $(pwd)
-      - echo "ls -l:"
+      - ls -l
       - ls 
       - echo branch
       - echo status
-      # - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
+      - echo $(git diff)
+      - aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
       # - echo $(git diff --name-only HEAD main)
       # - |
-      #   for i in $(git diff --name-only HEAD main); do
-      #     echo $i
-      #     if [[ "$i" == *"kk.txt"* ]]; then
-      #         echo "kk.txt file changes"
-      #         echo "SNS notification sent to email"
-      #     fi
-      #     if [[ "$i" == *"bose.txt"* ]]; then
-      #         echo "bose.txt has changed"
-      #         echo "SNS notification sent to email"
-      #     fi                                              
-      #   done
+      # #   for i in $(git diff --name-only HEAD main); do
+      # #     echo $i
+      # #     if [[ "$i" == *"kk.txt"* ]]; then
+      # #         echo "kk.txt file changes"
+      # #         echo "SNS notification sent to email"
+      # #     fi
+      # #     if [[ "$i" == *"bose.txt"* ]]; then
+      # #         echo "bose.txt has changed"
+      # #         echo "SNS notification sent to email"
+      # #     fi                                              
+      # #   done
 
 ## for statement change   this main brach inside no of repo and one of these navinbuildtask repo  and inside this repo have no of files kk.txt , bose.txt, d.sh, buildspec.yaml , etc
               # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
@@ -79,5 +80,8 @@ phases:
 #         done
 
 
+# GAUTHAMBOSE
 
-# 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
+
+
+#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
