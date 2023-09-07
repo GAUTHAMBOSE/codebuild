@@ -4,20 +4,26 @@ phases:
     commands:
       - echo "Starting build phase..."
       - echo $(pwd)
+      - git --version
       - ls -l
       - ls 
       - echo "$(git branch)"
       - echo "$(git status)"
       - git log --oneline --graph
-      - git log --oneline -graph -n 5
-      - echo "$(git diff --name-only HEAD HEAD~1)"
+      - git log --oneline --graph --decorate --all
+      - git log --oneline --graph --decorate --all --simplify-by-decoration
 
+      - git diff
+      - git diff --name-only HEAD HEAD~1
+      - echo "$(git diff --name-only HEAD HEAD~1)"
+      - git diff --name-only HEAD HEAD~1 > changed_files.txt || touch changed_files.txt
       # - HEAD_COMMIT=$(git rev-parse HEAD)
       # - PARENT_COMMIT=$(git rev-parse HEAD~1)
       # - echo $HEAD_COMMIT
       # - echo $PARENT_COMMIT
       # - echo "$(git diff --name-only $PARENT_COMMIT $HEAD_COMMIT)"
       # - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
+
       # - echo "$(git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt)"
       # - cat changed_files.txt
        
@@ -40,18 +46,16 @@ phases:
       #     fi                                              
       #   done
 
+
+
+
+
+##############################################################
   # - PARENT_COMMITS=$(git log -n 1 --pretty=format:%H HEAD^)
   #     - echo $PARENT_COMMITS
   #     - echo "$(git diff --name-only $PARENT_COMMITS $HEAD_COMMIT)"
 
 
- #######################################################
 
-
-
-        # for i in git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt; do
-
-
-        # for i in $(git diff --name-only HEAD HEAD~1); do
-
+#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
 
