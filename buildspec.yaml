@@ -37,12 +37,12 @@ phases:
           echo $i
           if [ "$i" = "kk.txt" ]; then
               echo "kk.txt file changes"
-            # aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
+            aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
               echo "SNS notification sent to email"
           fi
           if [ "$i" = "bose.txt" ]; then
               echo "bose.txt has changed"
-              #aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
+              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
               echo "SNS notification sent to email"
           fi                                              
         done
@@ -131,3 +131,4 @@ phases:
 # GAUTHAMBOSE
 
 #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
+#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
