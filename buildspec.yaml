@@ -24,8 +24,8 @@ phases:
       - echo $HEAD_COMMIT
       - echo $PARENT_COMMIT
       - echo "$(git diff --name-only $PARENT_COMMIT $HEAD_COMMIT)"
-      - PARENT_COMMITS=$(git log -n 1 --pretty=format:%H HEAD^)
-      - echo $PARENT_COMMITS
+      # - PARENT_COMMITS=$(git log -n 1 --pretty=format:%H HEAD^)
+      # - echo $PARENT_COMMITS
       # - echo "$(git diff --name-only $PARENT_COMMITS $HEAD_COMMIT)"
       - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
       - cat changed_files.txt
