@@ -1,5 +1,2 @@
-bose.txt
 buildspec.yaml
 changed_files.txt
-d.sh
-kk.txt
