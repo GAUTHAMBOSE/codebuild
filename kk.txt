@@ -1,2 +1,59 @@
+1. Configuration:
 
-kkumar@kkuNGFdwqeddsvdfcvds GJCnk
+git config: Configure Git settings.
+git config --global user.name "Your Name": Set your username globally.
+git config --global user.email "youremail@example.com": Set your email globally.
+git config --list: List all Git configurations.
+2. Repository Initialization:
+
+git init: Initialize a new Git repository.
+git clone <repository_url>: Clone a remote repository.
+
+3. Basic Snapshotting:
+
+git add <file>: Stage changes for commit.
+git commit -m "Commit message": Commit staged changes.
+git status: Show the status of your working directory.
+
+4. Branching and Merging:
+git branch: List branches in the repository.
+git branch <branch_name>: Create a new branch.
+git checkout <branch_name>: Switch to a branch.
+git merge <branch_name>: Merge changes from one branch into the current branch.
+git pull: Fetch and merge changes from a remote repository.
+
+5. Remote Repositories:
+
+git remote: List remote repositories.
+git remote -v: List remote repositories with URLs.
+git push <remote_name> <branch_name>: Push changes to a remote repository.
+git fetch <remote_name>: Fetch changes from a remote repository.
+
+6. History and Logging:
+git log: Show commit history.
+git log --oneline: Show compact commit history.
+git blame <file>: Show who last modified each line of a file.
+git show <commit_hash>: Show details of a specific commit.
+
+7. Undoing Changes:
+git reset <file>: Unstage changes.
+git reset --hard <commit_hash>: Reset to a specific commit, discarding changes.
+git revert <commit_hash>: Create a new commit that undoes changes from a specific commit.
+
+8. Stashing:
+git stash: Temporarily save changes.
+git stash pop: Apply the most recent stash and remove it from the stack.
+
+9. Tagging:
+git tag: List tags.
+git tag <tag_name>: Create a new tag.
+git tag -a <tag_name> -m "Tag message": Create an annotated tag.
+git push --tags: Push tags to a remote repository.
+
+10. Submodules:
+git submodule init: Initialize submodules in a repository.
+git submodule update: Update submodules in a repository.
+
+11. Configuration Files:
+.gitignore: Specify files and directories to be ignored.
+.gitattributes: Configure file-specific Git behaviors.
