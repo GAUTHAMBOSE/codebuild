@@ -24,9 +24,7 @@ phases:
       - echo $HEAD_COMMIT
       - echo $PARENT_COMMIT
       - echo "$(git diff --name-only $PARENT_COMMIT $HEAD_COMMIT)"
-      # - PARENT_COMMITS=$(git log -n 1 --pretty=format:%H HEAD^)
-      # - echo $PARENT_COMMITS
-      # - echo "$(git diff --name-only $PARENT_COMMITS $HEAD_COMMIT)"
+    
       - echo "$(git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt)"
       - cat changed_files.txt
        
@@ -49,7 +47,9 @@ phases:
           fi                                              
         done
 
-
+  # - PARENT_COMMITS=$(git log -n 1 --pretty=format:%H HEAD^)
+  #     - echo $PARENT_COMMITS
+  #     - echo "$(git diff --name-only $PARENT_COMMITS $HEAD_COMMIT)"
 
 
  #######################################################
@@ -129,15 +129,5 @@ phases:
 
 
 # GAUTHAMBOSE
-
-
-
-#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
-#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
-#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
-
-
-
-#fatal: ambiguous argument 'HEAD~7': unknown revision or path not in the working tree. Use '--' to separate paths from revisions, like this: 'git <command> [<revision>...] -- [<file>...]' 
 
 #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
