@@ -2,4 +2,4 @@ Vitamin A:
 
 Sweet potatoes
 Carrots
-HWQEHDUISAD9BHVDvfsdgfsdvccsagit log --oneline --graph --decorate --all --simplify-by-decorationgr
+HWQEHDUISAD9BHVDvfsdgfsdvccsagit log --oneline --graph --decorate --all --simplify-by-decorationgrCSAD
