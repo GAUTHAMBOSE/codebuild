@@ -2,18 +2,7 @@ version: 0.2
 phases:
   build:
     commands:
-      # - echo $(pwd)
-      # - ls -l
-      # - ls 
-      # - echo "$(git branch)"
-      # - echo "$(git status)"
-      # - HEAD_COMMIT=$(git rev-parse HEAD)
-      # - PARENT_COMMIT=$(git rev-parse HEAD~1)
-      # - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
-      # - cat changed_files.txt
-
-      # - echo $(git diff)
-
+      - echo "Starting build phase..."
       -echo $(pwd)
       - ls -l
       - ls 
@@ -24,7 +13,8 @@ phases:
       - echo $HEAD_COMMIT
       - echo $PARENT_COMMIT
       - echo "$(git diff --name-only $PARENT_COMMIT $HEAD_COMMIT)"
-    
+      - git log
+      - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
       - echo "$(git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt)"
       - cat changed_files.txt
        
@@ -54,46 +44,14 @@ phases:
 
  #######################################################
 
-      #   for i in $(cat changed_files.txt) ; do
-      #     echo $i
-      #     if [[ "$i" == *"kk.txt"* ]]; then
-      #         echo "kk.txt file changes"
-      #         aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
-      #         echo "SNS notification sent to email"
-      #     fi
-      #     if [[ "$i" == *"bose.txt"* ]]; then
-      #         echo "bose.txt has changed"
-      #         aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
-      #         echo "SNS notification sent to email"
-      #     fi                                              
-      #   done
-      # - echo "sns notification sent to email"
-      # - echo "$(git diff --name-only HEAD~1 HEAD)"
-      # - echo $(git diff --name-only HEAD HEAD~1)
 
 
         # for i in git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt; do
 
-## for statement change   this main brach inside no of repo and one of these navinbuildtask 
-# $(git diff --name-only HEAD main)
 
-
-
-
-      #     if [[ $i == *"kk.txt"* ]]; then
-      #       echo "kk.txt file changes"
-      #       aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
-      #     elif [[ $i == *"bose.txt"* ]]; then
-      #       echo "bose.txt has changed"
-      #       aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
-      #     fi
-      #   done
-      # - echo "sns notification sent to email"
         # for i in $(git diff --name-only HEAD HEAD~1); do
 
 
-
-## for statement this main brach inside no of repo and one of these navinbuildtask repo  and inside this repo have no of files kk.txt , bose.txt, d.sh, buildspec.yaml , etc
 
 
 
@@ -131,4 +89,4 @@ phases:
 # GAUTHAMBOSE
 
 #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
-#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
+#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  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
